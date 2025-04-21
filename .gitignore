@@ -1,0 +1,9 @@
+# ignore .vscode folder
+.vscode/
+
+# ignore *.o | *.a
+*.o
+*.a
+
+# ignore executable
+pipex
