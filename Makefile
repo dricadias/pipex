@@ -6,7 +6,7 @@
 #    By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/20 21:35:33 by adias-do          #+#    #+#              #
-#    Updated: 2025/04/20 21:40:17 by adias-do         ###   ########.fr        #
+#    Updated: 2025/04/21 15:28:23 by adias-do         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 LIBFTDIR = libft
 RM = rm -rf
 
-SRCS = scrs/pipex.c
+SRCS = srcs/pipex.c
 
 OBJS = $(SRCS:.c=.o)
 
