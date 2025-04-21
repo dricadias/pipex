@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adias-do <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/21 13:41:19 by adias-do          #+#    #+#              #
-#    Updated: 2024/10/21 15:46:49 by adias-do         ###   ########.fr        #
+#    Updated: 2025/04/21 16:28:08 by adias-do         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-	ft_printf.c ft_functions.c ft_pointer.c get_next_line.c get_next_line_utils.c
+	./printf/ft_printf.c ./printf/ft_functions.c ./printf/ft_pointer.c \
+	./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
