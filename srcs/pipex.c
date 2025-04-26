@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 22:08:08 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/25 22:19:30 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/26 05:22:56 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	child_process(t_pipex *node, char **envp)
 {
 	if (!node->cmd1_path)
 	{
-		ft_putstr_fd("command not found: ", STDERR_FILENO);
 		ft_putstr_fd(node->cmd1_args[0], STDERR_FILENO);
+		ft_putstr_fd(": command not found", STDERR_FILENO);
 		ft_putstr_fd("\n", STDERR_FILENO);
 		free_pipex(NULL, node, 127);
 	}
@@ -28,15 +28,18 @@ void	child_process(t_pipex *node, char **envp)
 	close(node->infile);
 	close(node->outfile);
 	if (execve(node->cmd1_path, node->cmd1_args, envp) == -1)
-		free_pipex(strerror(errno), node, 1);
+	{
+		perror(node->cmd1_path);
+		free_pipex(NULL, node, 1);
+	}
 }
 
 void	child2_process(t_pipex *node, char **envp)
 {
 	if (!node->cmd2_path)
 	{
-		ft_putstr_fd("command not found: ", STDERR_FILENO);
 		ft_putstr_fd(node->cmd2_args[0], STDERR_FILENO);
+		ft_putstr_fd(": command not found", STDERR_FILENO);
 		ft_putstr_fd("\n", STDERR_FILENO);
 		free_pipex(NULL, node, 127);
 	}
@@ -52,7 +55,10 @@ void	child2_process(t_pipex *node, char **envp)
 	close(node->infile);
 	close(node->outfile);
 	if (execve(node->cmd2_path, node->cmd2_args, envp) == -1)
-		free_pipex(strerror(errno), node, 1);
+	{
+		perror(node->cmd2_path);
+		free_pipex(NULL, node, 1);
+	}
 }
 
 int	main(int argc, char **argv, char **envp)
