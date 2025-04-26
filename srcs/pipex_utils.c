@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 20:27:38 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/25 22:17:36 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/26 05:26:38 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ char	**get_envp_paths(char **envp)
 		envp++;
 	}
 	if (!path_var)
-		ft_error("alguma mensagem", EXIT_FAILURE); // error message
+		ft_error("PATH not found in environment variables", EXIT_FAILURE);
 	paths = ft_split(path_var, ':');
 	if (!paths)
-		ft_error("alguma mensagem 2", EXIT_FAILURE); // error message
+		ft_error("failed to split PATH", EXIT_FAILURE);
 	return (paths);
 }
 
