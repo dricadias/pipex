@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 20:27:38 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/26 14:21:29 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/26 16:08:20 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*get_command_path(char *cmd, char **paths)
 	char	*tmp;
 	char	*full_path;
 
-	if (ft_strchr(cmd, '/') && access(cmd, X_OK) == 0)
+	if (ft_strchr(cmd, '/'))
 		return (ft_strdup(cmd));
 	tmp = NULL;
 	i = 0;
