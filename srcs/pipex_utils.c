@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 20:27:38 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/26 05:26:38 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/26 14:21:29 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	init_struct(t_pipex *node, int argc, char **argv, char **envp)
 			free_pipex("failed to open /dev/null", node, 1);
 	}
 	node->outfile = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
+	if (node->outfile < 0)
+		perror(argv[4]);
 	node->paths = get_envp_paths(envp);
 	node->cmd1_args = ft_split(argv[2], ' ');
 	if (!node->cmd1_args || !node->cmd1_args[0])
@@ -67,7 +69,7 @@ char	**get_envp_paths(char **envp)
 	path_var = NULL;
 	while (*envp)
 	{
-		if (strncmp(*envp, "PATH=", 5) == 0)
+		if (ft_strncmp(*envp, "PATH=", 5) == 0)
 		{
 			path_var = *envp + 5;
 			break ;
